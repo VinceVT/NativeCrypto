@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import RootReducers from './Reducers';
 
-const middleware = applyMiddleware(thunk, promise, logger);
+const middleware = applyMiddleware(thunk, promise);
 
 const Store = createStore(
     RootReducers,

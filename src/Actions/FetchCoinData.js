@@ -5,22 +5,22 @@ import { url, API_KEY } from './../Utils/Constants';
 import {
     FETCHING_COIN_DATA,
     FETCHING_COIN_DATA_SUCCESS,
-    FETCHING_COIN_DATA_ERROR
+    FETCHING_COIN_DATA_FAIL
 } from './../Utils/ActionTypes';
 
 
-export default FetchCoinData = () => {
+export default function FetchCoinData() {
     return dispatch => {
-        
         dispatch({ type: FETCHING_COIN_DATA})
-        
         return axios.get(url, {
-            qs: {
+            quotes: {
                 start: 1,
                 limit: 5000,
                 convert: 'USD'
             },
             headers: {
+                'Accept': 'application/json',
+                'Accept-Encoding': 'deflate, gzip',
                 'X-CMC_PRO_API_KEY': API_KEY
             },
             json: true,
@@ -33,8 +33,8 @@ export default FetchCoinData = () => {
             })
             .catch(err => {
                 dispatch({
-                    type: FETCHING_COIN_DATA_ERROR,
-                    payload: err.data
+                    type: FETCHING_COIN_DATA_FAIL,
+                    payload: err
                 })
             });
         }

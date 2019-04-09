@@ -3,7 +3,5 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": null,
-  "suppressConnectErrors": false,
-  "__DEV__": true
+  "urlRandomness": null
 }
