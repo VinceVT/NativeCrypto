@@ -48,7 +48,7 @@ class CryptoContainer extends Component {
         }
         return (
             <FlatList contentContainerStyle={contentContainer}>
-                {this.renderCoinCards()}
+                {() => this.renderCoinCards()}
             </FlatList>
         )
         
