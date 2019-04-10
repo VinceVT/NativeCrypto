@@ -91,7 +91,6 @@ const CoinCard = ({
     
     return (
         <View style={container}>
-
             <View style={upperRow}>
                 <Image
                     style={styles.image}
@@ -119,7 +118,6 @@ const CoinCard = ({
         </View> 
     );
 }
-
 
 
 export default CoinCard;

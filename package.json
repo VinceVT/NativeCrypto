@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "es6-promise": "^4.2.6",
     "expo": "^32.0.0",
     "isomorphic-fetch": "^2.2.1",
     "npm": "^6.9.0",
