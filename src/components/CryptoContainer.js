@@ -41,25 +41,26 @@ class CryptoContainer extends Component {
     // }
 
     componentWillMount() {
+        const { crypto } = this.props;
         this.props.FetchCoinData();
     }
 
-    renderCoinCards = () => {
-        const { crypto } = this.props;
-        return (crypto.data.map((coin) => {
-            return (
-                <CoinCard 
-                    key={coin.name}
-                    coin_name={coin.name}
-                    symbol={coin.symbol}
-                    price_usd={coin.price_usd}
-                    percent_change_24h={coin.percent_change_24h}
-                    percent_change_7d={coin.percent_change_7d}
-                />
-            )
-        })
-        )
-    }
+    // renderCoinCards = () => {
+    //     const { crypto } = this.props;
+    //     return (crypto.data.map((coin) => {
+    //         return (
+    //             <CoinCard 
+    //                 key={coin.name}
+    //                 coin_name={coin.name}
+    //                 symbol={coin.symbol}
+    //                 price_usd={coin.price_usd}
+    //                 percent_change_24h={coin.percent_change_24h}
+    //                 percent_change_7d={coin.percent_change_7d}
+    //             />
+    //         )
+    //     })
+    //     )
+    // }
    
 
 
@@ -67,19 +68,20 @@ class CryptoContainer extends Component {
 
         const { crypto } = this.props;
         const { contentContainer } = styles;
+        console.log(crypto.data)
 
-        // if (crypto.isFetching) {
-        //     return (
-        //         <View>
-        //             <Spinner
-        //                 visible={crypto.isFetching}
-        //                 textContent={"Loading..."}
-        //                 textStyle={{color: '#253145'}}
-        //                 animation="fade"
-        //             />
-        //         </View>
-        //     )
-        // }
+        if (crypto.isFetching) {
+            return (
+                <View>
+                    <Spinner
+                        visible={crypto.isFetching}
+                        textContent={"Loading..."}
+                        textStyle={{color: '#253145'}}
+                        animation="fade"
+                    />
+                </View>
+            )
+        }
         return (
         <FlatList
             data={crypto.data}
@@ -88,9 +90,9 @@ class CryptoContainer extends Component {
                     key={item.name}
                     coin_name={item.name}
                     symbol={item.symbol}
-                    price_usd={item.price_usd}
-                    percent_change_24h={item.percent_change_24h}
-                    percent_change_7d={item.percent_change_7d}
+                    price={Math.floor(100 * item.quote.USD.price)/100}
+                    percent_change_24h={item.quote.USD.percent_change_24h}
+                    percent_change_7d={item.quote.USD.percent_change_7d}
                 />
             )}
         />

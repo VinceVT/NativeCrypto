@@ -84,7 +84,7 @@ const {
 const CoinCard = ({
         symbol,
         coin_name,
-        price_usd,
+        price,
         percent_change_24h,
         percent_change_7d
     }) => {
@@ -99,7 +99,7 @@ const CoinCard = ({
                 <Text style={coinSymbol}>{symbol}</Text>
                 <Text style={seperator}>|</Text>
                 <Text style={coinName}>{coin_name}</Text>
-                <Text style={coinPrice}>{price_usd}
+                <Text style={coinPrice}>{price}
                     <Text style={moneySymbol}> $ </Text>
                 </Text>
             </View>
